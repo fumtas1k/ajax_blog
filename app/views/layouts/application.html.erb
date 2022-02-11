@@ -5,6 +5,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -39,13 +40,13 @@
         <% end %>
       </nav>
     </header>
-    <% if flash.any? %>
+    <!-- <% if flash.any? %>
       <% flash.each do |key, value| %>
         <%= content_tag(:div, class: "alert alert-#{key}") do %>
           <%= value %>
         <% end %>
       <% end %>
-    <% end %>
+    <% end %> -->
     <main>
       <div class="container">
         <%= yield %>

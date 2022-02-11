@@ -7,3 +7,19 @@
     max-width: 500px;
   }
 }
+
+// comment
+.comments-container {
+  width: 100%;
+}
+.comment-container {
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  margin: 5px auto;
+  padding: 10px;
+}
+.comment-items {
+  display: flex;
+  justify-content: space-between;
+}

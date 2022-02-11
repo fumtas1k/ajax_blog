@@ -15,6 +15,7 @@
 #
 class User < ApplicationRecord
   before_validation { email.downcase! }
+  has_many :blogs, dependent: :destroy
   has_secure_password
 
   VALID_EMAIL_REGEX = /\A[\w+.-]+@[a-z\d-]+(\.[a-z\d-]+)*\.[a-z]+\z/i
@@ -23,5 +24,4 @@ class User < ApplicationRecord
   format: { with: VALID_EMAIL_REGEX}
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
 
-  has_many :blogs, dependent: :destroy
 end

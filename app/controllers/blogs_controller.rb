@@ -9,6 +9,8 @@ class BlogsController < ApplicationController
 
   # GET /blogs/1 or /blogs/1.json
   def show
+    @comment = @blog.comments.build
+    @comments = @blog.comments.order(created_at: :desc)
   end
 
   # GET /blogs/new

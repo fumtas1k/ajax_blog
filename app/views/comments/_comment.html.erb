@@ -1,0 +1,21 @@
+<div class="comment-container" id="this_comment_<%= comment.id %>">
+  <div class="comment-imtem">
+    <%= comment.blog.user.name%>
+  </div>
+  <div class="comment-item">
+    <%= simple_format(comment.content) %>
+  </div>
+    <div class="comment-items">
+      <%= time_ago_in_words comment.created_at %>
+        <div class="comment-btns">
+      <%= link_to edit_blog_comment_path(blog, comment), remote: true, class: "comment-edit-btn" do %>
+        <i class="fa-solid fa-pen-to-square"></i>
+      <% end %>
+      <%= link_to blog_comment_path(blog, comment), method: :delete, remote: true, class: "comment-destroy-btn", data: { confirm: "本当に削除しますか?" } do %>
+        <i class="fa-solid fa-trash-can"></i>
+      <% end %>
+    </div>
+  </div>
+
+
+</div>

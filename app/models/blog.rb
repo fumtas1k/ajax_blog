@@ -18,8 +18,9 @@
 #  fk_rails_...  (user_id => users.id)
 #
 class Blog < ApplicationRecord
+  belongs_to :user
+  has_many :comments, dependent: :destroy
+
   validates :title, presence: true, length: {maximum: 30}
   validates :content, presence: true
-
-  belongs_to :user
 end
