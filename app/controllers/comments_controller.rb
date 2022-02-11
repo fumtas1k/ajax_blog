@@ -1,8 +1,11 @@
 class CommentsController < ApplicationController
   before_action :set_blog, only: %i[ create edit update destroy ]
   before_action :set_comment, only: %i[ edit update destroy ]
+  before_action :author_required, only: %i[ edit update destroy ]
+
   def create
     @comment = @blog.comments.build(comment_params)
+    @comment.user_id = current_user.id
     respond_to do |format|
       if @comment.save
         flash[:notice] = "投稿しました!"
@@ -44,12 +47,15 @@ class CommentsController < ApplicationController
 
   private
   def comment_params
-    params.require(:comment).permit(:blog_id, :content)
+    params.require(:comment).permit(:content)
   end
   def set_blog
     @blog = Blog.find(params[:blog_id])
   end
   def set_comment
     @comment = Comment.find(params[:id])
+  end
+  def author_required
+    redirect_back fallback_location: blogs_path unless @comment.user == current_user
   end
 end

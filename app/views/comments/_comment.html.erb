@@ -1,6 +1,6 @@
 <div class="comment-container" id="this_comment_<%= comment.id %>">
-  <div class="comment-imtem">
-    <%= comment.blog.user.name%>
+  <div class="comment-item">
+    <%= content_tag(:span, comment.user.name + "さんがコメントしました") %>
   </div>
   <div class="comment-item">
     <%= simple_format(comment.content) %>

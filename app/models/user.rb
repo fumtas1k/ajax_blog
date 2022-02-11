@@ -16,6 +16,8 @@
 class User < ApplicationRecord
   before_validation { email.downcase! }
   has_many :blogs, dependent: :destroy
+  has_many :comments, dependent: :destroy
+  has_many :comment_blogs, through: :comments, source: :blog
   has_secure_password
 
   VALID_EMAIL_REGEX = /\A[\w+.-]+@[a-z\d-]+(\.[a-z\d-]+)*\.[a-z]+\z/i

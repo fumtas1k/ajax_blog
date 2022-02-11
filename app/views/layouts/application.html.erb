@@ -32,7 +32,7 @@
                   </a>
                   <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <%= link_to "プロフィール", user_path(current_user), class: "dropdown-item" %>
-                    <%= link_to "ログアウト", session_path(current_user), class: "dropdown-item" %>
+                    <%= link_to "ログアウト", session_path(current_user), class: "dropdown-item", method: :delete %>
                   </div>
                 </li>
             </ul>
