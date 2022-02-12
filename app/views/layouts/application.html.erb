@@ -40,13 +40,11 @@
         <% end %>
       </nav>
     </header>
-    <!-- <% if flash.any? %>
-      <% flash.each do |key, value| %>
-        <%= content_tag(:div, class: "alert alert-#{key}") do %>
-          <%= value %>
-        <% end %>
+    <% flash.each do |key, value| %>
+      <%= content_tag(:div, class: "alert alert-#{key}") do %>
+        <%= value %>
       <% end %>
-    <% end %> -->
+    <% end %>
     <main>
       <div class="container">
         <%= yield %>
