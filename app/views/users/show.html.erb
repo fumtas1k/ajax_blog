@@ -8,5 +8,33 @@
   <%= @user.email %>
 </p>
 
+<p>
+  <strong>following:</strong>
+  <%= @user.following.count %> |
+  <% @user.following.each do |user| %>
+    <span>
+      <%= link_to user_path(user) do %>
+        <%= user.name %>
+      <% end %>
+    </span>
+  <% end %>
+</p>
+
+<p>
+  <strong>follower:</strong>
+  <%= @user.followers.count %>
+  <% @user.followers.each do |user| %>
+    <span>
+      <%= link_to user_path(user) do %>
+        <%= user.name %>
+      <% end %>
+    </span>
+  <% end %>
+</p>
+
+<p>
+  <%= render "follow_form", user: @user %>
+</p>
+
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

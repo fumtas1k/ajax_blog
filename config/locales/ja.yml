@@ -10,6 +10,7 @@ ja:
     user: ユーザー
     blog: ブログ
     comment: コメント
+    relationship: フォロー機能
     attributes:
       user:
         name: 名前
@@ -21,6 +22,9 @@ ja:
         content: 内容
       comment:
         content: コメント
+      relationship:
+        following: フォロー
+        followers: フォロワー
   date:
     abbr_day_names:
     - 日
